@@ -256,15 +256,16 @@
   box-sizing: border-box !important;
 }
 
-/* About page "View Reel" button - matching homepage CTA design */
+/* About page "View Reel" button - pill/rounded style by default */
 .btn-reel {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
-  padding: 11px 20px !important;
+  padding: 13px 20px !important;
   background: transparent !important;
-  border: none !important;
+  border: 1px solid var(--dark-color, #000000) !important;
+  border-radius: 20px !important;
   color: var(--dark-color, #000000) !important;
   font-family: 'Azeret Mono', sans-serif, system-ui !important;
   font-optical-sizing: auto !important;
@@ -275,128 +276,25 @@
   text-decoration: none !important;
   cursor: pointer !important;
   position: relative !important;
-  overflow: hidden !important;
-  transition: color 0.4s cubic-bezier(0.2, 0, 0.8, 1) !important;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease !important;
   width: fit-content !important;
   justify-self: center !important;
 }
 
-/* SVG Frame Container - Open frame effect with straight left edge */
-.btn-reel::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  border-top: 1px solid var(--dark-color, #000000) !important;
-  border-right: 1px solid var(--dark-color, #000000) !important;
-  border-bottom: 1px solid var(--dark-color, #000000) !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-  border-top-right-radius: 8px !important;
-  border-bottom-right-radius: 8px !important;
-  transition:
-    border-left 0.5s cubic-bezier(0.2, 0, 0.8, 1),
-    border-radius 0.5s cubic-bezier(0.2, 0, 0.8, 1) !important;
-  z-index: 0 !important;
-}
-
-/* Background fill layer */
-/* SVG Frame Container - Open frame effect with shorter bottom border */
-.btn-reel::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-
-  /* Keep top and right borders */
-  border-top: 1px solid var(--dark-color, #000000) !important;
-  border-right: 1px solid var(--dark-color, #000000) !important;
-  border-left: none !important;
-  border-bottom: none !important;
-
-  /* Shorter bottom border */
-  background: linear-gradient(
-      to right,
-      transparent 0%,
-      transparent 20%,
-      /* empty area */ var(--dark-color, #000000) 20%,
-      var(--dark-color, #000000) 100%
-    )
-    bottom / 100% 1px no-repeat !important;
-
-  border-radius: 0 !important;
-  border-top-right-radius: 8px !important;
-  border-bottom-right-radius: 8px !important;
-
-  transition:
-    border-left 0.5s cubic-bezier(0.2, 0, 0.8, 1),
-    border-radius 0.5s cubic-bezier(0.2, 0, 0.8, 1) !important;
-
-  z-index: 0 !important;
-}
-
-/* Background fill layer */
+/* Remove geometry-style pseudo-elements */
+.btn-reel::before,
 .btn-reel::after {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-
-  background: var(--dark-color, #000000) !important;
-
-  border-radius: 0 !important;
-  border-top-right-radius: 8px !important;
-  border-bottom-right-radius: 8px !important;
-
-  transform: scaleX(0) !important;
-  transform-origin: left !important;
-
-  transition:
-    transform 0.4s cubic-bezier(0.2, 0, 0.8, 1) 0.3s,
-    border-radius 0.5s cubic-bezier(0.2, 0, 0.8, 1) !important;
-
-  z-index: 0 !important;
+  display: none !important;
 }
-/* Hover State: Close the frame */
+
+/* Hover: dark background + white text */
 @media (hover: hover) {
-  .btn-reel:hover::before {
-    border-left: 1px solid var(--dark-color, #000000) !important;
-    border-radius: 8px !important;
-  }
-
-  .btn-reel:hover::after {
-    transform: scaleX(1) !important;
-    border-radius: 8px !important;
-  }
-
   .btn-reel:hover {
+    background: var(--dark-color, #000000) !important;
     color: var(--light-color, #ffffff) !important;
   }
-
-  .btn-reel:hover svg {
-    transform: translateX(4px) !important;
-  }
-}
-
-/* Active state */
-.btn-reel:active::before {
-  border-left: 1px solid var(--dark-color, #000000) !important;
-  border-radius: 8px !important;
-}
-
-.btn-reel:active::after {
-  transform: scaleX(1) !important;
-  transition-delay: 0s !important;
-}
-
-.btn-reel:active {
-  color: var(--light-color, #ffffff) !important;
 }
 
 /* SVG icon styling */
@@ -564,23 +462,91 @@
   column-count: 1 !important;
 }
 
-/* Original pill style (when buttonStyle = "original" in config.json) */
-.btn-style--original .btn-reel {
-  border: 1px solid var(--dark-color, #000000) !important;
-  border-radius: 20px !important;
-  padding: 13px 20px !important;
+/* Geometry style (when buttonStyle = "geometry" in config.json) */
+.btn-style--geometry .btn-reel {
+  padding: 11px 20px !important;
   background: transparent !important;
-  transition: background 0.3s ease, color 0.3s ease !important;
+  border: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.4s cubic-bezier(0.2, 0, 0.8, 1) !important;
 }
 
-.btn-style--original .btn-reel::before,
-.btn-style--original .btn-reel::after {
-  display: none !important;
+.btn-style--geometry .btn-reel::before,
+.btn-style--geometry .btn-reel::after {
+  display: revert !important;
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 0 !important;
+}
+
+.btn-style--geometry .btn-reel::before {
+  border-top: 1px solid var(--dark-color, #000000) !important;
+  border-right: 1px solid var(--dark-color, #000000) !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  background: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 20%,
+      var(--dark-color, #000000) 20%,
+      var(--dark-color, #000000) 100%
+    )
+    bottom / 100% 1px no-repeat !important;
+  border-radius: 0 !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  transition:
+    border-left 0.5s cubic-bezier(0.2, 0, 0.8, 1),
+    border-radius 0.5s cubic-bezier(0.2, 0, 0.8, 1) !important;
+}
+
+.btn-style--geometry .btn-reel::after {
+  background: var(--dark-color, #000000) !important;
+  border-radius: 0 !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0, 0.8, 1) 0.3s,
+    border-radius 0.5s cubic-bezier(0.2, 0, 0.8, 1) !important;
 }
 
 @media (hover: hover) {
-  .btn-style--original .btn-reel:hover {
-    background: var(--dark-color, #000000) !important;
+  .btn-style--geometry .btn-reel:hover::before {
+    border-left: 1px solid var(--dark-color, #000000) !important;
+    border-radius: 8px !important;
+  }
+
+  .btn-style--geometry .btn-reel:hover::after {
+    transform: scaleX(1) !important;
+    border-radius: 8px !important;
+  }
+
+  .btn-style--geometry .btn-reel:hover {
     color: var(--light-color, #ffffff) !important;
   }
+
+  .btn-style--geometry .btn-reel:hover svg {
+    transform: translateX(4px) !important;
+  }
+}
+
+.btn-style--geometry .btn-reel:active::before {
+  border-left: 1px solid var(--dark-color, #000000) !important;
+  border-radius: 8px !important;
+}
+
+.btn-style--geometry .btn-reel:active::after {
+  transform: scaleX(1) !important;
+  transition-delay: 0s !important;
+}
+
+.btn-style--geometry .btn-reel:active {
+  color: var(--light-color, #ffffff) !important;
 }
