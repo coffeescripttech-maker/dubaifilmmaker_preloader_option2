@@ -6,7 +6,7 @@
       "name": "Reversed Layout",
       "description": "Logo right, menu left - comprehensive layout with navigation positioning",
       "logo": {
-        "src": "assets/img/version_1/white.png",
+        "src": "assets/img/final_logo.svg",
         "srcDark": "assets/img/version_1/black.png",
         "alt": "DubaiFilmMaker"
       },
