@@ -1,5 +1,5 @@
 {
-  "activePreset": "reversed",
+  "activePreset": "",
   "description": "Header configuration - switch between different header layouts and logo styles",
   "presets": {
     "reversed": {
@@ -7,7 +7,7 @@
       "description": "Logo right, menu left - comprehensive layout with navigation positioning",
       "logo": {
         "src": "assets/img/final_logo.svg",
-        "srcDark": "assets/img/version_1/black.png",
+        "srcDark": "assets/img/final_logo.svg",
         "alt": "DubaiFilmMaker"
       },
       "introAnimation": {
