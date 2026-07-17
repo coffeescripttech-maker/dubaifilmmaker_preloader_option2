@@ -141,11 +141,11 @@
         "description": "Enable/disable Works navigation link"
       },
       "aboutPage": {
-        "enabled": true,
+        "enabled": false,
         "description": "Enable/disable About navigation link"
       },
       "contactPage": {
-        "enabled": false,
+        "enabled": true,
         "description": "Enable/disable Contact navigation link"
       }
     },
